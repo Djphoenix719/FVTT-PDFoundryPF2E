@@ -38,10 +38,17 @@ const logger = require('gulplog');
 const sourcemaps = require('gulp-sourcemaps');
 const typedoc = require('gulp-typedoc');
 
-const foundryConfig = JSON.parse(fs.readFileSync('./foundryconfig.json'));
-
 // Config
 const distName = 'pdfoundry-pf2e';
+let foundryConfig;
+if (fs.existsSync('./foundryconfig.json')) {
+    foundryConfig = JSON.parse(fs.readFileSync('./foundryconfig.json'));
+} else {
+    foundryConfig = {
+        dataPath: '',
+    };
+}
+
 const destFolder = path.resolve(foundryConfig['dataPath'], distName);
 const jsBundle = 'bundle.js';
 

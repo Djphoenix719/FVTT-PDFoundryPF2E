@@ -2,5 +2,5 @@
 .idea
 node_modules/*
 module/**/*.js
-foundryconfig.json
+foundryconfig2.json
 old-data.ts
