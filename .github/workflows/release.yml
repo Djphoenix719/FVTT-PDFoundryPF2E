@@ -27,8 +27,8 @@ jobs:
 
       - name: Update module.json
         run: |
-          sed -i '/"version":/c\  "version": "${{ steps.get_version.outputs.VERSION2 }}",' module.json
-          sed -i '/"download":/c\  "    download": "https://github.com/Djphoenix719/FVTT-PDFoundryPF2E/releases/download/${{ steps.get_version.outputs.VERSION }}/pdfoundry-pf2e-${{ steps.get_version.outputs.VERSION }}.zip",' module.json
+          sed -i '/"version":/c\ \t"version": "${{ steps.get_version.outputs.VERSION2 }}",' module.json
+          sed -i '/"download":/c\ \t"download": "https://github.com/Djphoenix719/FVTT-PDFoundryPF2E/releases/download/${{ steps.get_version.outputs.VERSION }}/pdfoundry-pf2e-${{ steps.get_version.outputs.VERSION }}.zip",' module.json
           cat module.json
 
       - name: Install dependencies
@@ -51,13 +51,15 @@ jobs:
           draft: false
           prerelease: false
 
+      # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`.
+      # See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
       - name: Upload Release Assets
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./pdfoundry-pf2e-${{ steps.get_version.outputs.VERSION }}.zip
           asset_name: pdfoundry-pf2e-${{ steps.get_version.outputs.VERSION }}.zip
           asset_content_type: application/zip
