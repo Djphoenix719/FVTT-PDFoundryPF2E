@@ -1,0 +1,18 @@
+div.pdf-source,
+span.pdf-source {
+    label {
+        cursor: pointer;
+    }
+    label:hover {
+        text-shadow: 0 0 8px red;
+    }
+}
+
+span.pdf-source {
+    display: flex !important;
+
+    label,
+    input {
+        flex-grow: 1;
+    }
+}
