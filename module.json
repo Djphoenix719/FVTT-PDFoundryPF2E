@@ -12,6 +12,6 @@
     "compatibleCoreVersion": "0.6.5",
     "minimumCoreVersion": "0.6.0",
     "manifest": "https://github.com/Djphoenix719/FVTT-PDFoundryPF2E/blob/master/module.json",
-    "download": "",
+    "download": "https://github.com/Djphoenix719/FVTT-PDFoundryPF2E/releases/v1.0.0/download/pdfoundry-pf2e.zip",
     "url": "https://github.com/Djphoenix719/FVTT-PDFoundryPF2E"
 }
