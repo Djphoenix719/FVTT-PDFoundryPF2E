@@ -71,6 +71,11 @@ function openPDF(source: string) {
     }
 
     const PDFoundry = ui['PDFoundry'] as any;
+    if (PDFoundry === undefined) {
+        ui.notifications.error('PDFoundry PF2E support requires PDFoundry enabled.');
+        return;
+    }
+
     const pdfData = PDFoundry.findPDFData((data) => data.name === nameOrCode || data.code === nameOrCode);
     if (pdfData) {
         PDFoundry.openPDF(pdfData, { page });
