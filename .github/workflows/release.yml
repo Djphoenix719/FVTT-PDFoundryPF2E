@@ -1,10 +1,10 @@
 name: Release Module
 # For releases
 on:
-  push
-#    # Sequence of patterns matched against refs/tags
-#    tags:
-#      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 jobs:
   build:
     name: Release
@@ -27,9 +27,6 @@ jobs:
 
       - name: Update module.json
         run: |
-          echo Version: ${{ steps.get_version.outputs.VERSION }}
-          echo Version2: ${{ steps.get_version.outputs.VERSION2 }}
-          echo Download url: ${{ steps.upload-release-asset.browser_download_url }}
           sed -i '/"version":/c\  "version": "${{ steps.get_version.outputs.VERSION2 }}",' module.json
           sed -i '/"download":/c\  "download": "https://github.com/Djphoenix719/FVTT-PDFoundryPF2E/releases/download//${{ steps.get_version.outputs.VERSION }}/${{ steps.get_version.outputs.VERSION }}.zip"' module.json
           cat module.json
