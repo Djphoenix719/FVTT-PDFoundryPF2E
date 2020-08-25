@@ -2,7 +2,7 @@
     "name": "pdfoundry-pf2e",
     "title": "PF2E PDFoundry Support",
     "description": "PDFoundry specific integration of PDFoundry for PF2E.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Andrew Cuccinello [DJ#1982]",
     "packs": [],
     "esmodules": ["./bundle.js"],
@@ -12,6 +12,6 @@
     "compatibleCoreVersion": "0.6.5",
     "minimumCoreVersion": "0.6.0",
     "manifest": "https://raw.githubusercontent.com/Djphoenix719/FVTT-PDFoundryPF2E/master/module.json",
-    "download": "https://github.com/Djphoenix719/FVTT-PDFoundryPF2E/releases/download/v1.0.0/pdfoundry-pf2e-v1.0.0.zip",
+    "download": "https://github.com/Djphoenix719/FVTT-PDFoundryPF2E/releases/download/v1.0.1/pdfoundry-pf2e-v1.0.1.zip",
     "url": "https://github.com/Djphoenix719/FVTT-PDFoundryPF2E"
 }
